@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button>click</button>
+    <ul id="child"></ul>
+    <div id="loading" >Loading...</div>
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#loading").show();
+
+                $.get("https://jsonplaceholder.typicode.com/users", function(data){
+                    data.forEach(user => {
+                        $("#child").append( ` <h1><li>Name: ${user.name}, Username: ${user.username}</li>`);
+                    });
+                    $("#loading").hide();
+                });
+            });
+        });
+    </script>
+ 
+ 
+</body>
+</html>

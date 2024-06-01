@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #loading {
+            display: none; /* Hide loading initially */
+            font-style: italic;
+            color: gray;
+        }
+
+        #parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color:red
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                // Show loading state
+                $("#loading").show();
+                $("#parent").empty(); // Clear existing content
+
+                // Make a GET request to fetch user data from the server
+                $.get('https://jsonplaceholder.typicode.com/posts', function(data) {
+                    // Iterate over each user object and display as cards
+                    data.forEach(function(post) {
+                        var cardHtml = `
+                           <div class="card">
+                                <h2>Title: ${post.title}</h2>
+                                <h5>Body${post.body}</h5>
+                            </div>
+                        `;
+                        $("#parent").append(cardHtml);
+                    });
+
+                    // Hide loading state after data is loaded
+                    $("#loading").hide();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Click to Load Posts</button>
+    <p id="loading">Loading...</p>
+    <div id="parent"></div>
+</body>
+</html>
+</body>
+</html>

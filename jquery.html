@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<body>
+    <h1 id="div1"> WELCOME TO MY PAGE</h1>
+    <div class="para">
+ <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, </p>
+  <p>  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+   <p> Neque porro quisquam est, qui doloreius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+     oluptas nulla pariatur?"</p>
+    </div>
+ <div class="div">
+   <p> There are many variations of passages of Lorem Ipsum available 
+    or randomised words which don't look even slightly believable.
+     If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+      anything embarrassing hidden in the middle of text. 
+      All the Lorem Ipsum generators on the Internet tend to repeat predefined 
+      chunks as necessary, making this the first true generator on the Internet.
+       It uses a dictionary of over 200 Latin words, combined with a handful of model 
+ or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
+ </div>
+ <br> 
+ <button id="btn1">press me</button> <br>
+
+ <p id="para1">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+    What is Lorem Ipsum?
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently 
+    with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <ul class="list">
+        <li>New items 1</li>
+        <li>New items 2</li>
+        <li>New items 3</li>
+        <li>New items 4</li>
+    </ul>
+    <button id="add">ADD</button>
+    <button id="rem">REMOVE</button>
+    <p id="wat">What is your name</p>
+    <button id="btn3">press</button><br> <br>
+    
+     <div id="div2">
+     </div>
+     <br>
+     <button id="btn4">click</button><br> <br>
+    NAME:<input type="text" name="fullname"><br><br>
+    email:<input type="text" name="email"><br> <br>
+  <input type="submit" >
+
+  
+  <ul id="drop">
+    <li>project 1</li>
+    <li>project 2</li>
+    <li>project 3</li>
+    <li>project 4</li>
+  </ul>
+  <button id="down">dropdowwn menu</button>
+  
+  
+  <div id="element" style="color: red;"> THIS ELEMENT FADE IN/OUT </div><br>  
+  <button id="fade-btn">Toggle </button>
+  
+   
+<div id="element-animate" style="width: 100px; height: 100px; background-color: red;"></div><br>
+<button id="animate-btn">Animate Element</button>
+  <p> hello people ,how re u doing</p>
+  <button onclick="appendText()">Append text</button>
+  <style>
+    #div2 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+        $(".para").click(function(){
+            $(".para").css("color","red").slideUp(2000).slideDown(2000)
+        })
+    })
+    $(".div").click(function(){
+        $(".div").css("border","3px solid red").slideUp(2000).slideDown(2000)
+    })
+    $("#div1").css("background-color","green")
+
+    $("#btn1").click(function(){
+       alert("It has been successfully clicked")
+    })
+    $("#para1").hover( function(){
+        $("#para1").css("background-color","yellow")
+    })
+    $("#add").click(function(){
+    $("ul").append("<li>Appended item</li>");
+    })
+    $("#rem").click(function(){
+  $("ul").empty()
+    })
+    $("#btn3").click(function(){
+        $("#wat").text("Hello world!")
+    })
+    $(document).ready(function(){
+      $("#btn4").click(function(){
+        $("#div2").animate({ left:"10rem" }).slideToggle(3000);
+      });
+    });
+    $(document).ready(function(){
+        $("#down").click(function(){
+            $("#drop").slideToggle(3000)
+        })
+    })
+
+    $(document).ready(function(){
+        $("#fade-btn").click(function(){
+            $("#element").fadeToggle(3000)
+        })
+    })
+   $(document).ready(function(){
+    $("#animate-btn").click(function(){
+        $("#element-animate").animate({
+      width:"250px",
+      height:"250px",
+      left:"250px"
+        }).fadeToggle(3000)
+    })
+   })
+
+  function appendText() {
+  var txt1 = "<p>Text.</p>";               // Create element with HTML 
+  var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+  var txt3 = document.createElement("p");  // Create with DOM
+  txt3.innerHTML = "Text.";
+  $("body").append(txt1, txt2, txt3);      // Append the new elements
+}
+
+  </script>
+</body>
+</html>
